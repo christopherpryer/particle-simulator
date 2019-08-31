@@ -58,9 +58,15 @@ def visaulize(sim):
         fig, animate, init_func=init, blit=True, interval=10)
     plt.show()
 
+def init_particle():
+    return Particle(
+        uniform(-0.5, 0.5),
+        uniform(-0.5, 0.5),
+        uniform(-5, 5)
+    )
+
 if __name__ == '__main__':
-    particles = [Particle(0.3, 0.5, 1),
-                Particle(0.0, -0.5, -1),
-                Particle(-0.1, -0.4, 3)]
+    n = 10
+    particles = [init_particle() for p in range(n)]
     sim = Simulator(particles)
     visaulize(sim)
